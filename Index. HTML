@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="সৌমিক দাশের ব্যক্তিগত ও সক্রিয় ওয়েবসাইট। স্কাউটিং, শিক্ষাজীবন এবং ফুটবল।">
+<title>সৌমিক দাশ | Personal Portfolio</title>
+
+<style>
+:root {
+  --bg-dark: #090909;
+  --bg-card: #151515;
+  --bg-elevated: #1e1c16;
+  --gold: #e4c16e;
+  --gold-dim: #80652d;
+  --gold-bright: #f5da94;
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* HEADER & NAV */
+header {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h2 {
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--gold);
+  color: #111;
+  font-weight: bold;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 75px 20px;
+  background: radial-gradient(circle at top, #29200d 0%, #090909 70%);
+}
+
+.welcome {
+  display: inline-block;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  color: var(--gold);
+  font-size: 42px;
+  margin-top: 10px;
+}
+
+.typing-box {
+  font-size: 20px;
+  color: var(--gold-bright);
+  min-height: 36px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background: var(--gold);
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 15px auto 0;
+}
+
+.hero-img-wrap {
+  margin-top: 25px;
+}
+
+.hero img {
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 25px rgba(228, 193, 110, 0.35);
+  transition: transform 0.4s;
+}
+
+.hero img:hover {
+  transform: scale(1.06);
+}
+
+/* SECTIONS & CARDS */
+section {
+  padding: 65px 20px;
+  border-bottom: 1px solid #2b2313;
+  scroll-margin-top: 110px;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--gold);
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.card {
+  max-width: 850px;
+  margin: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--gold-dim);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  padding: 30px;
+}
+
+.content h3 {
+  color: var(--gold);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.content p, .content li {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.content ul {
+  padding-left: 22px;
+  margin-bottom: 15px;
+}
+
+/* INTERACTIVE WIDGETS */
+.interactive-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--gold-dim);
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn-outline.active,
+.btn-outline:hover {
+  background: var(--gold);
+  color: #111;
+  font-weight: bold;
+}
+
+.tab-panel {
+  display: none;
+  color: var(--text-main);
+  font-size: 15px;
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* STUDY CHECKLIST */
+.task-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #14130f;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.task-list li:hover {
+  background: #252219;
+}
+
+.task-list li.done {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.task-list input[type="checkbox"] {
+  accent-color: var(--gold);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #050505;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+footer span {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 32px; }
+  .section-title { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h2>সৌমিক দাশ</h2>
+    <nav>
+      <a href="#home" class="active">হোম</a>
+      <a href="#scouting">স্কাউটিং</a>
+      <a href="#education">শিক্ষাজীবন</a>
+      <a href="#football">ফুটবল</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="welcome">স্বাগতম আমার ব্যক্তিগত ওয়েবসাইটে</div>
+    <h1>সৌমিক দাশ</h1>
+    <div class="typing-box">
+      <span id="typing-text"></span><span class="cursor">|</span>
+    </div>
+    <p>শৃঙ্খলা, নেতৃত্ব এবং শেখার অদম্য ইচ্ছা নিয়ে এগিয়ে চলা। স্কাউটিং, পড়াশোনা এবং ফুটবল মাঠের অভিজ্ঞতাগুলো এখানে তুলে ধরা হলো।</p>
+    
+    <div class="hero-img-wrap">
+      <!-- আপনার নিজের ছবি দিতে চাইলে src="profile.jpg" দিন এবং গিটহাবে ছবিটি আপলোড করুন -->
+      <img src="profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Soumik+Das&background=e4c16e&color=090909&size=256&bold=true'" alt="সৌমিক দাশ">
+    </div>
+  </section>
+
+  <!-- SCOUTING SECTION -->
+  <section id="scouting">
+    <h2 class="section-title">স্কাউটিং ও নেতৃত্ব</h2>
+    <div class="card">
+      <img src="scouting.jpg" onerror="this.src='https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=900&q=80'" alt="স্কাউটিং">
+      <div class="content">
+        <h3>বাংলাদেশ স্কাউটস</h3>
+        <p>স্কাউটিং আমাকে শিখিয়েছে কীভাবে যেকোনো প্রতিকূল পরিস্থিতিতে নিজেকে মানিয়ে নিতে হয় এবং দলের সবাইকে সাথে নিয়ে কাজ করতে হয়।</p>
+        
+        <div class="interactive-box">
+          <div class="tab-buttons">
+            <button class="btn-outline active" onclick="openTab(event, 'camp')">ক্যাম্প ও অভিযান</button>
+            <button class="btn-outline" onclick="openTab(event, 'service')">সমাজসেবা</button>
+            <button class="btn-outline" onclick="openTab(event, 'skills')">অর্জিত দক্ষতা</button>
+          </div>
+          
+          <div id="camp" class="tab-panel active">
+            বিভিন্ন আঞ্চলিক ও জাতীয় স্কাউট ক্যাম্পে অংশগ্রহণের মাধ্যমে তাঁবুবাস, হাইকিং এবং প্রকৃতির সাথে বসবাসের বাস্তব অভিজ্ঞতা অর্জন করেছি।
+          </div>
+          <div id="service" class="tab-panel">
+            বৃক্ষরোপণ, পরিচ্ছন্নতা অভিযান এবং বিভিন্ন সামাজিক সচেতনতামূলক কার্যক্রমে সক্রিয়ভাবে স্বেচ্ছাসেবক হিসেবে দায়িত্ব পালন।
+          </div>
+          <div id="skills" class="tab-panel">
+            প্রাথমিক চিকিৎসা (First Aid), দড়ির গিঁট (Pioneering), দলগত নেতৃত্ব এবং সময়ানুবর্তিতা।
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION -->
+  <section id="education">
+    <h2 class="section-title">শিক্ষাজীবন ও লক্ষ্য</h2>
+    <div class="card">
+      <div class="content">
+        <h3>জ্ঞান অর্জন ও নিজেকে গড়ে তোলা</h3>
+        <p>নিয়মিত পড়াশোনার পাশাপাশি প্রযুক্তি, ওয়েব ডেভেলপমেন্ট এবং সাধারণ জ্ঞান চর্চায় আমি বিশেষ আগ্রহী।</p>
+        
+        <div class="interactive-box">
+          <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">দৈনিক স্টাডি চেকলিস্ট (ক্লিক করে টিক দিন):</p>
+          <ul class="task-list" id="study-tasks">
+            <li onclick="toggleTask(this)"><input type="checkbox"> নিয়মিত পাঠ্যবই ও নোট রিভিশন</li>
+            <li onclick="toggleTask(this)"><input type="checkbox"> ইংরেজি ও সাধারণ জ্ঞান চর্চা</li>
+            <li onclick="toggleTask(this)"><input type="checkbox"> নতুন প্রযুক্তি ও কোডিং শেখা</li>
+            <li onclick="toggleTask(this)"><input type="checkbox"> আগামী দিনের পড়াশোনার পরিকল্পনা</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTBALL SECTION -->
+  <section id="football">
+    <h2 class="section-title">ফুটবল ও খেলাধুলা</h2>
+    <div class="card">
+      <img src="football.jpg" onerror="this.src='https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80'" alt="ফুটবল">
+      <div class="content">
+        <h3>সবুজ ঘাসের মাঠ</h3>
+        <p>ফুটবল আমার সবচেয়ে প্রিয় খেলা। এটি শুধু শরীর সুস্থ রাখে না, বরং দ্রুত সিদ্ধান্ত নেওয়ার ক্ষমতা ও দলগত সমন্বয় বাড়ায়।</p>
+        <ul>
+          <li><strong>পছন্দের পজিশন:</strong> মিডফিল্ড ও উইং</li>
+          <li><strong>খেলার ধরন:</strong> পাসিং এবং দলগত আক্রমণ</li>
+          <li><strong>শিক্ষা:</strong> হার-জিত মেনে নিয়ে শেষ মুহূর্ত পর্যন্ত লড়াই করা</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; ২০২৬ <span>সৌমিক দাশ</span> | সর্বস্বত্ব সংরক্ষিত</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // 1. Typing Animation
+    const texts = [
+      "একজন সক্রিয় স্কাউট",
+      "একজন নিষ্ঠাবান শিক্ষার্থী",
+      "একজন ফুটবলপ্রেমী"
+    ];
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+
+    (function type() {
+      if (count === texts.length) {
+        count = 0;
+      }
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+
+      document.getElementById("typing-text").textContent = letter;
+      if (letter.length === currentText.length) {
+        setTimeout(() => {
+          index = 0;
+          count++;
+          type();
+        }, 1800);
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+
+    // 2. Scroll Card Animation & Active Nav Link
+    const cards = document.querySelectorAll('.card');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function handleScroll() {
+      const triggerBottom = window.innerHeight * 0.88;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          card.classList.add('visible');
+        }
+      });
+
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.remove("active");
+        if (a.getAttribute("href") === "#" + current) {
+          a.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+
+    // 3. Interactive Tabs (Scouting)
+    function openTab(evt, tabName) {
+      const panels = document.querySelectorAll('.tab-panel');
+      const buttons = document.querySelectorAll('.btn-outline');
+
+      panels.forEach(panel => panel.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    // 4. Interactive Study Checklist
+    function toggleTask(liElement) {
+      const checkbox = liElement.querySelector('input[type="checkbox"]');
+      if (event.target !== checkbox) {
+        checkbox.checked = !checkbox.checked;
+      }
+      if (checkbox.checked) {
+        liElement.classList.add('done');
+      } else {
+        liElement.classList.remove('done');
+      }
+    }
+  </script>
+</body>
+</html>
